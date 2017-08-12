@@ -20,7 +20,7 @@ compte = 0
 all_directors = dict()
 for x in range(0, len(df)):
 
-    # Si on n'avait pas déja rencontré ce directeur on le crée & on initialise le genre (par défaut 2 = masculin)
+    # Si on n'avait pas déja rencontré ce directeur on le crée et on initialise le genre (par défaut 2 = masculin)
     director_name = df.loc[x, "director_name"]
     if director_name not in all_directors:
         all_directors[director_name] = dict([("gender", 2), ("movies_nb", 0), ("fidelity", 0), ("collab", dict())])
