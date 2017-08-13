@@ -1,6 +1,5 @@
 import pandas as pd
 import csv
-import json
 
 # Chargement du fichier dans un dataframe
 df = pd.read_csv("AllMoviesCastingRaw.csv", sep=";")
@@ -34,7 +33,7 @@ for x in range(0, len(df)):
     # Fonction qui incrémente le nb d'acteurs rencontrés par rapport à un dictionaire d'acteurs
     # On exclut les "none" et le réalisateur lui même (autocollab !)
     def incr_collab(director_root_name, name, collab_dict, coeff):
-        if "none(" in name or name == "none" or name == director_root_name:
+        if "none(" in name or name == "none" or director_root_name in name:
             return collab_dict
         if name not in collab_dict:
             collab_dict[name] = 0
@@ -42,7 +41,7 @@ for x in range(0, len(df)):
         return collab_dict
 
     coeff_actor = 1
-    coeff_editor = 1.5
+    coeff_editor = 1
     coeff_writer = 1
     coeff_producer = 1
 
